@@ -9,7 +9,7 @@ import {
 import {Button} from "@/components/ui/button";
 import {RecentPayments} from "@/components/page-component/dashboard/recent-payments";
 import ApartmentModal from "@/components/page-component/dashboard/apartment-modal";
-import {DollarSign, User, Home, BookX} from "lucide-react";
+import {PiggyBank, User, Home, AlertOctagonIcon,Receipt} from "lucide-react";
 import {format} from "date-fns";
 import {Loading} from "@/components/common/loading";
 import {Overview} from "@/components/page-component/dashboard/overview";
@@ -84,9 +84,9 @@ const Dashboard = () => {
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
-                  Phí đóng góp tháng {format(new Date(), 'MM/yyyy')}
+                  Đóng góp tháng {format(new Date(), 'MM/yyyy')}
                 </CardTitle>
-                <DollarSign className="h-4 w-4 text-muted-foreground"/>
+                <PiggyBank className="h-4 w-4 text-yellow-500" />
               </CardHeader>
               <CardContent>
                 {isLoadingTotalContributionData ? (
@@ -109,7 +109,7 @@ const Dashboard = () => {
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Phí chưa thu</CardTitle>
-                <BookX className="h-4 w-4 text-muted-foreground"/>
+                <AlertOctagonIcon className="h-4 w-4 text-red-500" />
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
@@ -130,7 +130,7 @@ const Dashboard = () => {
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">
-                  Cư dân BlueMoon
+                  Thông tin cư dân
                 </CardTitle>
                 <User className="h-4 w-4 text-muted-foreground"/>
               </CardHeader>
@@ -151,7 +151,7 @@ const Dashboard = () => {
             </Card>
             <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Số căn hộ đang có cư trú</CardTitle>
+                <CardTitle className="text-sm font-medium">Căn hộ đang có cư trú</CardTitle>
                 <Home className="h-4 w-4 text-muted-foreground"/>
               </CardHeader>
               <CardContent>
@@ -170,13 +170,16 @@ const Dashboard = () => {
               </CardContent>
             </Card>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-            <Card className="col-span-3">
-              <CardHeader>
-                <CardTitle>Thanh toán gần đây</CardTitle>
+          <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-1 justify-center">
+            <Card className="col-span-1 mx-auto w-full max-w-lg">
+              <CardHeader className="relative flex flex-row items-start justify-between">
+                <div>
+                  <CardTitle>Thanh toán gần đây</CardTitle>
                 <CardDescription>
                   Chung cư BlueMoon có {recentPayments ? recentPayments.length : [].length} thanh toán mới
                 </CardDescription>
+              </div>
+              <Receipt className="absolute top-7 right-10 h-6 w-6 text-green-500" />
               </CardHeader>
               <CardContent>
                 {isLoadingRecentPayments ? (
@@ -188,14 +191,14 @@ const Dashboard = () => {
                 )}
               </CardContent>
             </Card>
-            <Card className="col-span-4">
+            {/* <Card className="col-span-4">
               <CardHeader>
                 <CardTitle>Tổng quan</CardTitle>
               </CardHeader>
               <CardContent className="pl-2">
                 <Overview/>
               </CardContent>
-            </Card>
+            </Card> */}
           </div>
         </div>
       </div>
