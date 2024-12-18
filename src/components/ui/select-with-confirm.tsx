@@ -148,78 +148,34 @@ interface SelectWithConfirmProps {
 }
 
 const SelectWithConfirm: React.FC<SelectWithConfirmProps> = ({ options, onConfirm, selected, setSelected }) => {
-  // const [keepOpen, setKeepOpen] = React.useState(false);
-  //
-  // const handleChange = (value: string | null) => {
-  //   setSelected(value);
-  //   setKeepOpen(true); // Keep the dropdown open after selection
-  // };
-  //
-
-  //
-  // const handleClose = () => {
-  //   setKeepOpen(false); // Close the dropdown when the button is clicked
-  // };
-  //
-
-
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  const toggleDropdown = () => {
-    setIsOpen((prev) => !prev); // Toggle the dropdown open state
-  };
-
-  const handleOpen = () => {
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    onConfirm();
-    setIsOpen(false);
-  };
-
   const handleChange = (value: string) => {
-    setSelected(value);
-    setIsOpen(true); // Keep the dropdown open after selection
+    setSelected(value); // Cập nhật giá trị được chọn
   };
 
-
-
-  const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-      setIsOpen(false);
+  const handleConfirm = () => {
+    if (selected) {
+      onConfirm(); // Thực hiện xác nhận
     }
   };
-
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen]);
 
   return (
-    <Select open={isOpen} onOpenChange={handleOpen} onValueChange={handleChange} value={selected ?? undefined}>
-      <SelectTrigger onClick={toggleDropdown}>
-        <SelectValue placeholder="Chọn căn hộ...">
-          {selected ? options.find(opt => opt.value === selected)?.label : ""}
-        </SelectValue>
+    <Select onValueChange={handleChange} value={selected ?? undefined}>
+      <SelectTrigger>
+        <SelectValue placeholder="Chọn căn hộ..." />
       </SelectTrigger>
       <SelectContent>
-        {options.map(option => (
-          <SelectItem key={option.value} value={option.value} data-greyed={selected && option.value !== selected}>
+        {options.map((option) => (
+          <SelectItem key={option.value} value={option.value}>
             {option.label}
           </SelectItem>
         ))}
         <SelectSeparator />
         <div className="flex justify-center p-2">
-          <Button onClick={() => { onConfirm(); handleClose(); }} disabled={!selected} className="w-full flex items-center justify-center">
+          <Button
+            onClick={handleConfirm}
+            disabled={!selected}
+            className="w-full flex items-center justify-center"
+          >
             <Plus className="mr-2 h-4 w-4" /> Thêm mới
           </Button>
         </div>
@@ -227,6 +183,7 @@ const SelectWithConfirm: React.FC<SelectWithConfirmProps> = ({ options, onConfir
     </Select>
   );
 };
+
 
 
 export {

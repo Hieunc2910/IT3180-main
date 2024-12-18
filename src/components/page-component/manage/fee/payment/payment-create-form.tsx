@@ -106,10 +106,9 @@ export function PaymentCreateForm() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <Heading
-          title="Tạo khoản thu mới"
-          description="Tạo khoản thu mới cho căn hộ"
+          title="Khoản thu mới"
+          description={` Căn hộ ${apartmentNo}`}
         />
-        <h2 className="font-bold text-2xl tracking-tight">Căn hộ số {apartmentNo}</h2>
       </div>
       <Separator/>
       <div className="space-y-4">
@@ -117,7 +116,23 @@ export function PaymentCreateForm() {
           htmlFor="apartmentSize"
           className="text-black-700 block text-sm font-medium"
         >
-          Phương tiện căn hộ sở hữu:
+          Diện tích nhà (m<sup>2</sup>):
+        </label>
+        <div
+          className="group rounded-md border border-input px-3 py-2 text-sm ring-offset-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2">
+          <input
+            type="number"
+            id="apartmentSize"
+            value={apartmentSize}
+            readOnly
+            className="w-full cursor-not-allowed bg-transparent outline-none placeholder:text-muted-foreground opacity-60"
+          />
+        </div>
+        <label
+          htmlFor="internet"
+          className="text-black-700 block text-sm font-medium"
+        >
+          Phương tiện :
         </label>
         <div
           className="group rounded-md border border-input px-3 py-2 text-sm ring-offset-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2">
@@ -140,22 +155,7 @@ export function PaymentCreateForm() {
           htmlFor="apartmentSize"
           className="text-black-700 block text-sm font-medium"
         >
-          Diện tích nhà (mét vuông):
-        </label>
-        <div
-          className="group rounded-md border border-input px-3 py-2 text-sm ring-offset-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2">
-          <input
-            type="number"
-            id="apartmentSize"
-            value={apartmentSize}
-            readOnly
-            className="w-full cursor-not-allowed bg-transparent outline-none placeholder:text-muted-foreground opacity-60"
-          />
-        </div>
-        <label
-          htmlFor="internet"
-          className="text-black-700 block text-sm font-medium"
-        >
+         
           Gói cước Internet:
         </label>
         <div>
@@ -194,7 +194,7 @@ export function PaymentCreateForm() {
           htmlFor="water"
           className="text-black-700 block text-sm font-medium"
         >
-          Số nước (khối):
+          Số nước (m<sup>3</sup>):
         </label>
         <div
           className="group rounded-md border border-input px-3 py-2 text-sm ring-offset-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2">
@@ -222,7 +222,7 @@ export function PaymentCreateForm() {
             inputMode="numeric"
             value={contribute}
             onChange={(e) => setContribute(e.target.value)}
-            placeholder="Nhập số lượng..."
+            placeholder="Nhập số tiền muốn đóng góp..."
             className="w-full bg-transparent outline-none placeholder:text-muted-foreground"
           />
         </div>
@@ -238,7 +238,7 @@ export function PaymentCreateForm() {
             id="notes"
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
-            placeholder="Ghi chú..."
+            placeholder=""
             className="w-full bg-transparent outline-none placeholder:text-muted-foreground"
           />
         </div>
