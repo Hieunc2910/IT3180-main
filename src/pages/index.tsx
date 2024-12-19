@@ -1,9 +1,11 @@
+
 import React from "react";
 import Footer from "@/components/layout/footer";
-import { CloudMoon, Sun, MapPin, Shield } from "lucide-react";
+import { CloudMoon, Sun, MapPin, Shield, MoonStar } from "lucide-react";
 import { motion } from 'framer-motion';
 import Image from "next/image";
 import {Button} from "@/components/ui/button";
+
 
 const Home = () => {
   return (
@@ -13,19 +15,23 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75"
+          className="relative pt-48 pb-48 flex content-center items-center justify-center min-h-screen-75"
         >
+          
           <div
-            className="absolute top-0 w-full h-full bg-center bg-cover"
+            className="absolute top-0 left-0 w-full h-full bg-center bg-contain"
+        
             style={{
               backgroundImage:
-                "url('https://mogivi-blog.azureedge.net/media/1276/chung-cu-quan-7.jpg')",
+                "url('https://wallpapers.com/images/hd/vietnam-largest-city-efhfwqa2nzzjwxcm.jpg')",
             }}
           >
+            {/* lớp trong suốt đè lên ảnh nền */}
             <span
               id="blackOverlay"
               className="w-full h-full absolute opacity-75 bg-black"
-            ></span>
+            ></span>          
+
           </div>
           <div className="container relative mx-auto">
             <div className="items-center flex flex-wrap">
@@ -36,76 +42,68 @@ const Home = () => {
                 className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center"
               >
                 <div className="px-12">
-                  <CloudMoon className="text-white w-24 h-24 mb-2 lg:w-6/12 px-4 ml-auto mr-auto text-center" />
+                  <MoonStar className="text-blue-500 w-24 h-24 mb-2 lg:w-6/12 px-4 ml-auto mr-auto text-center" />
                   <h1 className="text-white font-semibold text-5xl">
-                    BlueMoon Apartment
+
+                    Welcome to BlueMoon
                   </h1>
-                  <p className="text-white mt-4 text-lg">
-                    Nơi để sống
+                  <p className="text-white mt-4 text-lg text-center">
+                    chung cư cao cấp cho mọi nhà
+
 
                   </p>
                 </div>
               </motion.div>
+
+              {/* <motion.div
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                className="w-full lg:w-6/12 px-4 text-right"
+              >
+                { <div className="px-12">
+                  <Image
+                    width={626}
+                    height={351}
+                    alt="BlueMoon là chung cư danh giá bậc nhất"
+                    src="/img/appartment1.avif"
+                    className="max-w-full rounded-lg shadow-lg"
+                  />
+
+                </div> 
+              </motion.div> */}
             </div>
           </div>
         </motion.div>
 
-        <section className="pb-20 mt-24">
+        <section className="pb-20 mt-24 flex items-center justify-center">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-center">
+            
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center"
+                className="w-full md:w-10/12 px-4 text-center"
               >
-                <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg">
-                  <div className="px-4 py-5 flex-auto bg-white rounded-lg">
-                    <Sun className="w-12 h-12 mb-4 mx-auto text-black" />
-                    <h6 className="text-xl font-semibold text-black">Tiện Nghi Luxury</h6>
-                    <p className="mt-2 font-light mb-4 text-black">
-                      Thưởng thức các tiện ích hiện đại như phòng gym, hồ bơi ngoài trời và
-                      vườn trên mái. Mọi chi tiết đều được thiết kế để mang đến
-                      sự thoải mái và sang trọng tuyệt đối.
+                <div className="relative flex flex-col min-w-0 break-words w-full rounded-lg">
+                  <div className="px-4 py-5">
+                    <p className="text-lg text-left font-light leading-relaxed text-blueGray-600 mb-6 ">
+                      Chung cư BlueMoon tọa lạc ngay ngã tư Văn Phú được khởi công xây dựng năm 2021
+                      và hoàn thành vào 2023. Chung cư được xây dựng trên diện tích 450m2, gồm
+                      30 tầng, tầng 1 làm kiot, 4 tầng đế, 24 tầng nhà ở và 1 tầng penhouse. Với thiết kế đẹp mắt, 
+                      tiện nghi hiện đại và vị trí đắc địa, cho thuê chung cư BlueMoon đang thu hút 
+                      sự quan tâm của nhiều người muốn tận hưởng cuộc sống thoải mái 
+                      và tiện ích tại một trong những khu vực phát triển nhanh nhất của thành phố.
                     </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.2 }}
-                className="w-full md:w-4/12 px-4 text-center"
-              >
-                <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg">
-                  <div className="px-4 py-5 flex-auto bg-white rounded-lg">
-                    <MapPin className="w-12 h-12 mb-4 mx-auto text-black" />
-                    <h6 className="text-xl font-semibold text-black">Vị Trí Chiến Lược</h6>
-                    <p className="mt-2 mb-4 font-light text-black">
-                      Tọa lạc tại ngã tư sầm uất Văn Phú, BlueMoon cung cấp sự
-                      tiếp cận tuyệt vời đến các trung tâm mua sắm, nhà hàng và
-                      khu giải trí. Tiện lợi ngay trước cửa nhà bạn.
+                    {/* <p className="mt-6 text-left leading-relaxed ">
+                      Chung cư BlueMoon quy hoạch khá nhiều tiện ích tại chỗ phục vụ cư dân nhằm gia tăng giá trị cuộc sống:
                     </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.4 }}
-                className="pt-6 w-full md:w-4/12 px-4 text-center"
-              >
-                <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-lg">
-                  <div className="px-4 py-5 flex-auto bg-white rounded-lg">
-                    <Shield className="w-12 h-12 mb-4 mx-auto text-black" />
-                    <h6 className="text-xl font-semibold text-black">An Ninh Tuyệt Đối</h6>
-                    <p className="mt-2 mb-4 font-light text-black">
-                      Hệ thống an ninh hàng đầu đảm bảo sự yên tâm với giám sát
-                      24/7, các điểm vào bảo mật và nhân viên bảo vệ chuyên
-                      nghiệp.
-                    </p>
+                    <ul className="list-disc list-inside mt-4 text-left ">
+                      <li>Các hoa viên nội khu</li>
+                      <li>Hồ bơi trong nhà và ngoài trời, cho người lớn và trẻ em</li>
+                      <li>Phòng tập thể dục, phòng sinh hoạt cộng đồng, khu vực tiệc nướng ngoài trời</li>
+                    </ul> */}
                   </div>
                 </div>
               </motion.div>
@@ -120,38 +118,47 @@ const Home = () => {
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                className="w-full md:w-5/12 px-4 mr-auto ml-auto"
-              >
-                <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  BlueMoon là chung cư hiện đại bậc nhất
-                </h3>
-                <p className="text-lg font-light leading-relaxed mt-4 mb-4">
-                  Tọa lạc ngay ngã tư Văn Phú được khởi công xây dựng năm 2021 và
-                  hoàn thành vào 2023. Chung cư được xây dựng trên diện tích
-                  450m2, gồm 30 tầng, tầng 1 làm kiot, 4 tầng đế, 24 tầng nhà ở
-                  và 1 tầng penhouse.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1 }}
                 className="w-full md:w-4/12 px-4 mr-auto ml-auto"
               >
                 <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg">
                   <Image
                     width={1900}
                     height={1900}
-                    alt="BlueMoon là chung cư hiện đại bậc nhất"
-                    src="/img/bluemoon-modern.jpg"
+                    alt="Thiết kế hiện đại và tiện nghi cao cấp"
+                    src="/img/Noithat.png"
                     className="w-full align-middle rounded-t-lg"
                   />
                 </div>
               </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                className="w-full md:w-5/12 px-4 mr-auto ml-auto"
+              >
+                <h3 className="text-2xl mb-2 font-semibold leading-normal">
+                  Thiết kế hiện đại và tiện nghi cao cấp
+                </h3>
+                <p className="text-lg font-light leading-relaxed text-blueGray-600 mb-6">
+                  Chung cư BlueMoon cho thuê được thiết kế theo phong cách hiện đại và tinh tế, 
+                  tạo nên không gian sống đẳng cấp và thoải mái cho cư dân. Các căn hộ tại BlueMoon được thiết kế 
+                  với sự chú trọng đến mọi chi tiết, từ bố trí không gian, bố cục nội thất đến lựa chọn vật liệu cao cấp.
+                </p>
+                <ul className="list-disc text-lg font-light ml-5 space-y-4">
+                  <li>Không gian mở và thông thoáng với cửa sổ lớn và ban công</li>
+                  <li>Hệ thống điều hòa và cấp thoát nước hiện đại</li>
+                  <li>Nội thất cao cấp: bếp hiện đại, phòng tắm sang trọng</li>
+                  <li>Hệ thống an ninh 24/7 và thang máy tiện lợi</li>
+                </ul>
+                <p className="text-lg font-light leading-relaxed text-blueGray-600"> 
+                Đây là nơi mà cư dân có thể thư giãn, tận hưởng cuộc sống hiện đại và đạt được sự cân bằng giữa công việc và cuộc sống.
+                </p>
+              </motion.div>
             </div>
           </div>
         </section>
+
 
         <section className="relative py-20">
           <div
@@ -170,28 +177,34 @@ const Home = () => {
                 <Image
                   width={2560}
                   height={1440}
-                  alt="BlueMoon là chung cư danh giá bậc nhất"
-                  src="/img/bluemoon-convenient.jpg"
+                  alt="Tiện ích nội khu đa dạng và đẳng cấp"
+                  src="/img/TienIch.jpg"
                   className="max-w-full rounded-lg shadow-lg"
                 />
               </motion.div>
+              
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1 }}
-                className="w-full md:w-5/12 ml-auto mr-auto px-4 mt-4"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1 }}
+                  className="w-full md:w-5/12 ml-auto mr-auto px-4 mt-4"
               >
                 <div className="md:pr-12">
-                  <h3 className="text-3xl font-semibold">
-                    BlueMoon là chung cư danh giá bậc nhất
-                  </h3>
-                  <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                    Đến với chung cư BlueMoon, quý khách sẽ được chào đón bởi
-                    sự thân thiện của đội ngũ nhân viên tận tình và tận hưởng
-                    những dịch vụ cao cấp bậc nhất khu vực, đảm bảo sẽ mang đến
-                    cho quý khách một trải nghiệm ấn tượng không
-                    thể nào quên.
-                  </p>
+                    <h3 className="text-2xl font-semibold leading-normal">
+                        Tiện ích nội khu đa dạng và đẳng cấp
+                    </h3>
+                    <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
+                        Scenic Valley tự hào sở hữu nhiều tiện ích nội khu đẳng cấp, mang lại trải nghiệm sống tiện lợi cho cư dân.
+                      </p>
+                    <ul className="list-disc text-lg font-light ml-5 space-y-4">
+                        <li><strong>Hồ bơi</strong>: Không gian thư giãn lý tưởng giữa thiên nhiên.</li>
+                        <li><strong>Phòng gym</strong>: Trang bị hiện đại giúp cư dân rèn luyện sức khỏe.</li>
+                        <li><strong>Khu vui chơi trẻ em</strong>: An toàn và sáng tạo cho các em nhỏ.</li>
+                        <li><strong>Khu BBQ</strong>: Nơi lý tưởng để tổ chức tiệc ngoài trời và giao lưu.</li>
+                    </ul>
+                    <p className="mt-4 text-lg font-light leading-relaxed text-blueGray-600">
+                        Nhờ các tiện ích này, cư dân Scenic Valley có thể tận hưởng cuộc sống tiện nghi ngay tại nơi cư trú.
+                    </p>
                 </div>
               </motion.div>
             </div>
