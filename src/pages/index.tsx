@@ -44,10 +44,12 @@ const Home = () => {
                 <div className="px-12">
                   <MoonStar className="text-blue-500 w-24 h-24 mb-2 lg:w-6/12 px-4 ml-auto mr-auto text-center" />
                   <h1 className="text-white font-semibold text-5xl">
+
                     Welcome to BlueMoon
                   </h1>
                   <p className="text-white mt-4 text-lg text-center">
                     chung cư cao cấp cho mọi nhà
+
 
                   </p>
                 </div>
