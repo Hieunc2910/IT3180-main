@@ -1,7 +1,7 @@
 
 import React from "react";
 import Footer from "@/components/layout/footer";
-import { MoonStar, Sun, MapPin, Shield } from "lucide-react";
+import { CloudMoon, Sun, MapPin, Shield, MoonStar } from "lucide-react";
 import { motion } from 'framer-motion';
 import Image from "next/image";
 import {Button} from "@/components/ui/button";
@@ -44,12 +44,10 @@ const Home = () => {
                 <div className="px-12">
                   <MoonStar className="text-blue-500 w-24 h-24 mb-2 lg:w-6/12 px-4 ml-auto mr-auto text-center" />
                   <h1 className="text-white font-semibold text-5xl">
-
                     Welcome to BlueMoon
                   </h1>
                   <p className="text-white mt-4 text-lg text-center">
                     chung cư cao cấp cho mọi nhà
-
 
                   </p>
                 </div>
@@ -211,70 +209,72 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="relative block lg:pt-0">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-wrap justify-center lg:mt-16">
+        <section className="relative block lg:pt-0 h-screen flex items-center justify-center">
+          <div className="container mx-auto px-4 ">
+            <div className="flex flex-wrap justify-center">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1 }}
                 className="w-full lg:w-6/12 px-4"
               >
-                <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white">
-                  <div className="flex-auto p-5 lg:p-10">
-                    <h4 className="text-2xl font-semibold text-black">
-                      Để lại lời nhắn cho chúng tôi
+                <div className="relative flex flex-col min-w-0 break-words w-full shadow-2xl rounded-3xl bg-gradient-to-tr from-white to-blue-100 border border-gray-200">
+                  <div className="flex-auto p-4 lg:p-10">
+                    <h4 className="text-2xl font-bold text-gray-800 mb-2 text-center">
+                      Liên hệ với tư vấn viên
                     </h4>
-                    <p className="leading-relaxed mt-1 mb-4 text-black">
-                      Hãy điền vào mục dưới đây và chúng tôi sẽ liên hệ lại với bạn trong vòng 24 giờ.
+                    <p className="leading-relaxed font-lightbold mb-2 text-black text-center">
+                      Hãy để lại thông tin bên dưới và chúng tôi sẽ hỗ trợ quý khách nhanh nhất có thể
                     </p>
-                    <div className="relative w-full mb-3 mt-8">
+                    <div className="relative w-full mb-4">
                       <label
-                        className="block uppercase text-xs font-bold mb-2 text-black"
+                        className="block uppercase font-light text-sm font-semibold mb-2 text-gray-700"
                         htmlFor="full-name"
                       >
-                        Họ và tên
+                        Tên khách hàng
                       </label>
                       <input
                         type="text"
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="Họ và tên"
+                        className="w-full px-4 py-3 rounded-lg shadow-md border border-gray-300 placeholder-gray-400 focus:ring-4 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ease-in-out"
+                        placeholder="Tên khách hàng"
                       />
                     </div>
 
-                    <div className="relative w-full mb-3">
+                    <div className="relative w-full mb-4">
                       <label
-                        className="block uppercase text-xs font-bold mb-2 text-black"
+                        className="block uppercase font-light text-sm font-semibold mb-2 text-gray-700"
                         htmlFor="email"
                       >
-                        Email
+                        Gmail liên hệ
                       </label>
                       <input
                         type="email"
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        placeholder="Email"
+                        className="w-full px-4 py-3 rounded-lg shadow-md border border-gray-300 placeholder-gray-400 focus:ring-4 focus:ring-green-500 focus:border-green-500 transition-all duration-300 ease-in-out"
+                        placeholder="Gmail"
                       />
                     </div>
 
-                    <div className="relative w-full mb-3">
+                    <div className="relative w-full mb-4">
                       <label
-                        className="block uppercase text-xs font-bold mb-2 text-black"
+                        className="block uppercase text-sm font-light font-semibold mb-2 text-gray-700"
                         htmlFor="message"
                       >
                         Lời nhắn
                       </label>
                       <textarea
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="w-full px-4 py-3 rounded-lg shadow-md border border-gray-300 placeholder-gray-400 focus:ring-4 focus:ring-pink-500 focus:border-pink-500 transition-all duration-300 ease-in-out"
                         placeholder="Để lại lời nhắn..."
+                        rows="4"
                       />
                     </div>
-                    <div className="text-center mt-6">
-                      <Button
-                        className="uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 w-full ease-linear transition-all duration-150"
+
+                    <div className="text-center mt-4">
+                      <button
+                        className="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white font-semibold uppercase px-6 py-3 rounded-full shadow-lg hover:shadow-2xl hover:from-red-500 hover:to-purple-500 transition-all duration-300 ease-in-out transform hover:scale-105"
                         type="button"
                       >
                         Gửi
-                      </Button>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -282,6 +282,7 @@ const Home = () => {
             </div>
           </div>
         </section>
+
       </main>
       <Footer />
     </>
