@@ -27,12 +27,13 @@ export const NavItems: NavItem[] = [
         color: "text-green-500",
         href: "/manage/fee",
       },
-      {
-        title: "Thay đổi mật khẩu",
-        icon: UserCog,
-        color: "text-green-500",
-        href: "/manage/account",
-      },
+      
     ],
+  },
+  {
+    title: "Quản lý tài khoản",
+    icon: UserCog,
+    color: "text-green-500",
+    href: "/manage/account",
   },
 ];
