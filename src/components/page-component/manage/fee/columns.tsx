@@ -36,7 +36,7 @@ export const columns: ColumnDef<FeeColumn>[] = [
   },
   {
     accessorKey: "apartmentSizeFee",
-    header: "Phí dịch vụ chung cư",
+    header: "Phí dịch vụ và quản lý",
   },
 
   {

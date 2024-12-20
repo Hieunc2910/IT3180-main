@@ -248,9 +248,9 @@ const PaymentForm = ({initialData}: PaymentFormProps) => {
               name="apartmentSizeFee"
               render={({field}) => (
                 <FormItem>
-                  <FormLabel>Phí dịch vụ chung cư:</FormLabel>
+                  <FormLabel>Phí dịch vụ và quản lý:</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Phí dịch vụ chung cư" disabled/>
+                    <Input {...field} placeholder="Phí dịch vụ và quản lý" disabled/>
                   </FormControl>
                 </FormItem>
               )}
