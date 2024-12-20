@@ -1,8 +1,9 @@
-"use client"
+"use client" 
 import { useEffect, useState } from 'react';
-import { BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
+import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 import { api } from "@/utils/api";
 import { Loading } from "@/components/common/loading";
+
 interface MonthlyFeeData {
   date: string;
   total: number | undefined;
@@ -47,7 +48,8 @@ export function Overview() {
 
   return (
     <ResponsiveContainer width="100%" height={350}>
-      <BarChart data={data}>
+      <LineChart data={data} margin={{ top: 20, right: 30, left: 10, bottom: 5 }}>
+        <CartesianGrid strokeDasharray="3 3" />
         <XAxis
           dataKey="date"
           stroke="#888888"
@@ -64,8 +66,8 @@ export function Overview() {
           tickFormatter={(value: number) => formatCurrency(value)}
         />
         <Tooltip content={<CustomTooltip />} />
-        <Bar dataKey="total" fill="#adfa1d" radius={[4, 4, 0, 0]} />
-      </BarChart>
+        <Line type="monotone" dataKey="total" stroke="#adfa1d" strokeWidth={2} dot={{ r: 3 }} />
+      </LineChart>
     </ResponsiveContainer>
   );
 }

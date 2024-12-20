@@ -82,7 +82,7 @@ return (
                     <Input
                       disabled={loading}
                       type="password"
-                      placeholder="Nhập mật khẩu đang được sử dụng."
+                      placeholder="Nhập mật khẩu hiện tại"
                       {...field}
                     />
                   </FormControl>
