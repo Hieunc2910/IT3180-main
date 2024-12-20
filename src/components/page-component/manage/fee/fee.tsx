@@ -35,7 +35,7 @@ export const FeeList = ({data}: FeeClientProps) => {
       <div className="flex items-start justify-between mb-4">
         <div>
           <Heading
-            title="Thông tin thu phí"
+            title="Quản lý khoản thu"
             description="Danh sách các khoản thu phí"
           />
         </div>

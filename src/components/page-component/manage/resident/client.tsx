@@ -19,7 +19,7 @@ export const ResidentClient = ({ data }: ResidentClientProps) => {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title="Thông tin cư dân"
+          title="Quản lý cư dân"
           description="Danh sách cư dân trong hệ thống"
         />
         <Button

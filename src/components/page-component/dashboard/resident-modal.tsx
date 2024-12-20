@@ -47,7 +47,7 @@ const ResidentModal: React.FC<ModalProps> = ({ isOpen, onClose, residentList }) 
     <Dialog open={isOpen} onOpenChange={(open) => { if (!open) onClose(); }}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Thông tin cư dân</DialogTitle>
+          <DialogTitle>Quản lý cư dân</DialogTitle>
           <DialogDescription>Danh sách các cư dân trong hệ thống</DialogDescription>
         </DialogHeader>
         <Accordion type="multiple">
