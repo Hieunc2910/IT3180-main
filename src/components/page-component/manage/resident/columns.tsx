@@ -66,14 +66,6 @@ export const columns: ColumnDef<ResidentColumn>[] = [
     accessorKey: "address.isStaying",
     header: "Trạng thái",
   },
-  // {
-  //   accessorKey: "createAt",
-  //   header: "Thời gian tạo",
-  // },
-  // {
-  //   accessorKey: "updateAt",
-  //   header: "Thời gian cập nhật",
-  // },
   {
     id: "actions",
     enableSorting: false,

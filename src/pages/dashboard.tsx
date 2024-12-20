@@ -79,7 +79,7 @@ const Dashboard = () => {
     <div className="flex-1 space-y-4 p-8 pt-6">
       <BreadCrumb items={breadcrumbItems} />
       <div className="flex items-center justify-between space-y-2">
-        <h2 className="text-4xl font-bold tracking-tight">Thông tin chung</h2>
+        <h2 className="text-4xl font-bold tracking-tight">Tổng quan</h2>
       </div>
 
       {/* Biểu đồ khoản thu các tháng */}
