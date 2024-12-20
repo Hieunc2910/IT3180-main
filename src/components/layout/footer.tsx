@@ -27,9 +27,9 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-center md:justify-between">
             <div className="w-full md:w-4/12 px-4 mx-auto text-center">
               <div className="text-sm text-blueGray-500 font-semibold py-1">
-                Copyright © 12/2024 -{" "}
+                Copyright © 2024 -{" "}
                 <a href="https://github.com/Hieunc2910/Project_IT3180">
-                  Nhóm 3 - IT3180.
+                  Nhóm 3 - IT3180 - 154019
                 </a>
               </div>
             </div>
