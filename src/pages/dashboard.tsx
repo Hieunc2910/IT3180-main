@@ -141,7 +141,6 @@ const Dashboard = () => {
           </CardContent>
         </Card>
 
-      
         <Card className="col-span-1 mx-auto w-full max-w-xs">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Căn hộ đang có cư trú</CardTitle>
@@ -188,7 +187,6 @@ const Dashboard = () => {
             )}
           </CardContent>
         </Card>
-        
       </div>
 
       {/* Hàng 3: Thanh toán gần đây */}
@@ -214,8 +212,27 @@ const Dashboard = () => {
           </CardContent>
         </Card>
       </div>
-    </div>
 
+      {/* Modals */}
+      <ApartmentModal
+        isOpen={isApartmentModalOpen}
+        onClose={() => setIsApartmentModalOpen(false)}
+        apartmentList={occupiedApartments?.apartments ?? []}
+      />
+      <UnpaidFeesModal
+        isOpen={isUnpaidFeesModalOpen}
+        onClose={() => setIsUnpaidFeesModalOpen(false)}
+        apartmentList={apartmentsWithUnpaidFees.map(apartment => ({
+          ...apartment,
+          unpaidFees: apartment.unpaidFees || [],
+        }))}
+      />
+      <ResidentModal
+        isOpen={isResidentModalOpen}
+        onClose={() => setIsResidentModalOpen(false)}
+        residentList={occupiedApartments?.apartments.flatMap(apartment => apartment.residents) ?? []}
+      />
+    </div>
   );
 };
 
