@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "@/components/layout/footer";
-import { CloudMoon, Sun, MapPin, Shield } from "lucide-react";
+import { Sun, MapPin, Shield, MoonStar } from "lucide-react";
 import { motion } from 'framer-motion';
 import Image from "next/image";
 import {Button} from "@/components/ui/button";
@@ -36,7 +36,7 @@ const Home = () => {
                 className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center"
               >
                 <div className="px-12">
-                  <CloudMoon className="text-white w-24 h-24 mb-2 lg:w-6/12 px-4 ml-auto mr-auto text-center" />
+                  <MoonStar className="text-blue-500 w-24 h-24 mb-2 lg:w-6/12 px-4 ml-auto mr-auto text-center" />
                   <h1 className="text-white font-semibold text-5xl">
                     BlueMoon Apartment
                   </h1>

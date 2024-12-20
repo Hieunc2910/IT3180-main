@@ -61,7 +61,6 @@ const Dashboard = () => {
     error: errorRecentPayments
   } = api.fee.getRecentPayments.useQuery();
 
-
   const handleViewApartments = () => {
     setIsApartmentModalOpen(true);
   };
@@ -191,14 +190,14 @@ const Dashboard = () => {
                 )}
               </CardContent>
             </Card>
-            {/* <Card className="col-span-4">
+            <Card className="col-span-4">
               <CardHeader>
                 <CardTitle>Tổng quan</CardTitle>
               </CardHeader>
               <CardContent className="pl-2">
                 <Overview/>
               </CardContent>
-            </Card> */}
+            </Card>
           </div>
         </div>
       </div>
