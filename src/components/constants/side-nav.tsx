@@ -28,7 +28,7 @@ export const NavItems: NavItem[] = [
         href: "/manage/fee",
       },
       {
-        title: "Thông tin tài khoản",
+        title: "Thay đổi mật khẩu",
         icon: UserCog,
         color: "text-green-500",
         href: "/manage/account",

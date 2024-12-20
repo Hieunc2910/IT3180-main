@@ -2,7 +2,7 @@ import React from "react";
 import BreadCrumb from "@/components/ui/breadcrumb";
 import { AccountForm } from "@/components/page-component/manage/account/account-form";
 
-const breadcrumbItems = [{ title: 'Đổi mật khẩu', link: '/manage/account' }];
+const breadcrumbItems = [{ title: 'Thay đổi mật khẩu', link: '/manage/account' }];
 const Account = () => {
 
   return (
