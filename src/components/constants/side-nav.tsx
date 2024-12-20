@@ -6,7 +6,7 @@ export const NavItems: NavItem[] = [
     title: "Trang chủ",
     icon: Hotel,
     href: "/dashboard",
-    color: "text-sky-500",
+    color: "text-blue-500",
   },
   {
     title: "Quản lý chung cư",
@@ -33,7 +33,7 @@ export const NavItems: NavItem[] = [
   {
     title: "Quản lý tài khoản",
     icon: UserCog,
-    color: "text-green-500",
+    color: "text-sky-200",
     href: "/manage/account",
   },
 ];
