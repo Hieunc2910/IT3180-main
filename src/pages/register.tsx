@@ -38,65 +38,78 @@ const SignUp = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 h-full">
-      <div className="flex content-center items-center justify-center h-full">
-        <div className="w-full lg:w-4/12 px-4">
-          <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
-            <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-              <form
-                onSubmit={(e) => {
-                  void handleSubmit(onSubmit)(e);
-                }}
-              >
-                <div className="relative w-full mb-3">
-                  <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="email">
-                    Email
-                  </label>
-                  <input
-                    type="string"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Email"
-                    {...register("email")}
-                    disabled={loading}
-                  />
-                  {errors.email && <p className="text-red-500 text-xs italic">{errors.email.message}</p>}
-                </div>
-
-                <div className="relative w-full mb-3">
-                  <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="password">
-                    MẬT KHẨU
-                  </label>
-                  <input
-                    type="password"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Mật khẩu"
-                    maxLength={32}
-                    {...register("password")}
-                    disabled={loading}
-                  />
-                  {errors.password && <p className="text-red-500 text-xs italic">{errors.password.message}</p>}
-                </div>
-
-                <div className="text-center mt-6">
-                  <Button
-                    className="uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                    type="submit"
-                    disabled={loading}
-                  >
-                    Đăng ký
-                  </Button>
-                </div>
-              </form>
-            </div>
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">Đăng ký tài khoản</h2>
+        <form
+          onSubmit={(e) => {
+            void handleSubmit(onSubmit)(e);
+          }}
+          className="space-y-4"
+        >
+          <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="email"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:ring focus:ring-blue-500 focus:outline-none ${
+                errors.email ? "border-red-500" : "border-gray-300"
+              }`}
+              placeholder="Email"
+              {...register("email")}
+              disabled={loading}
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+            )}
           </div>
-          <div className="flex flex-wrap mt-6 relative">
-            <div className="w-1/2"/>
-            <div className="w-1/2 text-right">
-              <Link href="/login" className="text-blueGray-200">
-                <small>Quay lại</small>
-              </Link>
-            </div>
+
+          <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="password"
+            >
+              Mật khẩu
+            </label>
+            <input
+              type="password"
+              id="password"
+              className={`mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:ring focus:ring-blue-500 focus:outline-none ${
+                errors.password ? "border-red-500" : "border-gray-300"
+              }`}
+              placeholder="Mật khẩu"
+              maxLength={32}
+              {...register("password")}
+              disabled={loading}
+            />
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+            )}
           </div>
+
+          <div>
+            <Button
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring focus:ring-blue-500 disabled:opacity-50"
+              type="submit"
+              disabled={loading}
+            >
+              {loading ? "Đang xử lý..." : "Đăng ký"}
+            </Button>
+          </div>
+        </form>
+
+        <div className="mt-4 text-center">
+          <p className="text-sm text-gray-600">
+            Đã có tài khoản?{' '}
+            <Link href="/login" legacyBehavior>
+              <a className="text-blue-500 hover:underline">Đăng nhập</a>
+            </Link>
+          </p>
         </div>
       </div>
     </div>
