@@ -8,13 +8,17 @@ import Link from "next/link";
 import { type BuiltInProviderType } from "next-auth/providers";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const { register, handleSubmit, formState: { errors } } = useForm<ILogin>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ILogin>({
     defaultValues: {
       email: "",
       password: "",
@@ -28,7 +32,7 @@ const Login = () => {
       const result = await signIn("credentials", {
         ...values,
         redirect: false,
-        callbackUrl: "/dashboard"
+        callbackUrl: "/dashboard",
       });
 
       if (result?.error) {
@@ -45,10 +49,12 @@ const Login = () => {
     }
   };
 
-  const handleOAuthSignIn = async (provider: LiteralUnion<BuiltInProviderType>) => {
+  const handleOAuthSignIn = async (
+    provider: LiteralUnion<BuiltInProviderType>
+  ) => {
     setLoading(true);
     try {
-      await signIn(provider, {callbackUrl: "/dashboard"});
+      await signIn(provider, { callbackUrl: "/dashboard" });
     } catch (error) {
       toast.error(`Đăng nhập với ${provider} thất bại, vui lòng thử lại`);
     } finally {
@@ -57,94 +63,80 @@ const Login = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 h-full">
-      <div className="flex content-center items-center justify-center h-full">
-        <div className="w-full lg:w-4/12 px-4">
-          <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
-            <div className="rounded-t mb-0 px-6 py-6">
-              <div className="text-center mb-4">
-                <h6 className="text-blueGray-500 font-bold">
-                  Đăng Nhập Bằng
-                </h6>
-              </div>
-              <div className="btn-wrapper text-center">
-                <Button
-                  className="px-32 py-4 rounded outline-none focus:outline-none mr-1 uppercase shadow hover:shadow-md inline-flex items-center ease-linear transition-all duration-150"
-                  type="button"
-                  onClick={() => {
-                    void handleOAuthSignIn("google");
-                  }}
-                >
-                  <Image className="w-5 mr-1"
-                         width={500}
-                         height={500}
-                         alt="Google"
-                         src="/img/google.svg"
-                  />
-                  Google
-                </Button>
-              </div>
-              <hr className="mt-6 border-b-1 border-blueGray-300"/>
-            </div>
-            <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-              <div className="text-blueGray-400 text-center mb-3 font-bold">
-                <h6 className="text-blueGray-500 font-bold">
-                  Hoặc đăng nhập bằng
-                </h6>
-              </div>
-              <form
-                onSubmit={(e) => {
-                  void handleSubmit(onSubmit)(e);
-                }}
-              >
-                <div className="relative w-full mb-3">
-                  <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="email">
-                    Email
-                  </label>
-                  <input
-                    type="string"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Email"
-                    {...register("email")}
-                    disabled={loading}
-                  />
-                  {errors.email && <p className="text-red-500 text-xs italic">{errors.email.message}</p>}
-                </div>
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="w-full max-w-md bg-white rounded-xl shadow-lg p-6 space-y-6">
+        <div className="text-center">
+          <h2 className="text-2xl font-semibold text-gray-700">Đăng Nhập</h2>
+          <p className="text-gray-500">Xin chào quý khách, vui lòng đăng nhập!</p>
+        </div>
 
-                <div className="relative w-full mb-3">
-                  <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="password">
-                    MẬT KHẨU
-                  </label>
-                  <input
-                    type="password"
-                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Mật khẩu"
-                    maxLength={32}
-                    {...register("password")}
-                    disabled={loading}
-                  />
-                  {errors.password && <p className="text-red-500 text-xs italic">{errors.password.message}</p>}
-                </div>
-                <div className="text-center mt-6">
-                  <Button
-                    className="uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                    type="submit"
-                    disabled={loading}
-                  >
-                    Đăng Nhập
-                  </Button>
-                </div>
-              </form>
-            </div>
+        <div className="space-y-4">
+          <Button
+            className="w-full flex items-center justify-center bg-red-500 text-white py-3 px-4 rounded-lg hover:bg-red-600 transition"
+            onClick={() => {
+              void handleOAuthSignIn("google");
+            }}
+            disabled={loading}
+          >
+            <Image
+              className="w-5 h-5 mr-2"
+              width={20}
+              height={20}
+              alt="Google"
+              src="/img/google.svg"
+            />
+            Đăng nhập với Google
+          </Button>
+        </div>
+
+        <div className="relative flex items-center py-4">
+          <div className="flex-grow border-t border-gray-300"></div>
+          <span className="px-4 text-gray-500">Hoặc</span>
+          <div className="flex-grow border-t border-gray-300"></div>
+        </div>
+
+        <form onSubmit={(e) => void handleSubmit(onSubmit)(e)} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Email</label>
+            <input
+              type="email"
+              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
+              placeholder="Nhập email"
+              {...register("email")}
+              disabled={loading}
+            />
+            {errors.email && (
+              <p className="mt-2 text-sm text-red-500">{errors.email.message}</p>
+            )}
           </div>
-          <div className="flex flex-wrap mt-6 relative">
-            <div className="w-1/2"/>
-            <div className="w-1/2 text-right">
-              <Link href="/register" className="text-blueGray-200">
-                <small>Tạo tài khoản mới</small>
-              </Link>
-            </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Mật khẩu</label>
+            <input
+              type="password"
+              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm"
+              placeholder="Nhập mật khẩu"
+              {...register("password")}
+              disabled={loading}
+            />
+            {errors.password && (
+              <p className="mt-2 text-sm text-red-500">{errors.password.message}</p>
+            )}
           </div>
+
+          <Button
+            type="submit"
+            className="w-full py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition disabled:opacity-50"
+            disabled={loading}
+          >
+            Đăng Nhập
+          </Button>
+        </form>
+
+        <div className="text-center">
+          <Link href="/register" className="text-sm text-blue-500 hover:underline">
+            Tạo tài khoản mới
+          </Link>
         </div>
       </div>
     </div>
