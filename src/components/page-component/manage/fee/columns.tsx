@@ -36,7 +36,7 @@ export const columns: ColumnDef<FeeColumn>[] = [
   },
   {
     accessorKey: "apartmentSizeFee",
-    header: "Phí dịch vụ chung cư",
+    header: "Phí dịch vụ và quản lý",
   },
 
   {
@@ -56,13 +56,14 @@ export const columns: ColumnDef<FeeColumn>[] = [
     header: "Phí gửi xe",
   },
   {
-    accessorKey: "totalAmount",
-    header: "Tổng phí thu",
-  },
-  {
     accessorKey: "contributionFee",
     header: "Khoản đóng góp",
   },
+  {
+    accessorKey: "totalAmount",
+    header: "Tổng phí thu",
+  },
+  
   {
     accessorKey: "dueDate",
     header: "Hạn thanh toán",

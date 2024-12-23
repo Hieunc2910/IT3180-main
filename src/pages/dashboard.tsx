@@ -10,7 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { RecentPayments } from "@/components/page-component/dashboard/recent-payments";
 import ApartmentModal from "@/components/page-component/dashboard/apartment-modal";
-import { PiggyBank, User, Home, AlertOctagonIcon, Receipt } from "lucide-react";
+import { PiggyBank, Users, Warehouse, AlertOctagonIcon, Receipt } from "lucide-react";
 import { format } from "date-fns";
 import { Loading } from "@/components/common/loading";
 import { Overview } from "@/components/page-component/dashboard/overview";
@@ -79,10 +79,9 @@ const Dashboard = () => {
     <div className="flex-1 space-y-4 p-8 pt-6">
       <BreadCrumb items={breadcrumbItems} />
       <div className="flex items-center justify-between space-y-2">
-        <h2 className="text-4xl font-bold tracking-tight">Thông tin chung</h2>
+        <h2 className="text-4xl font-bold tracking-tight">Tổng quan</h2>
       </div>
 
-      {/* Biểu đồ khoản thu các tháng */}
       <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-1">
         <Card className="col-span-1">
           <CardHeader>
@@ -94,12 +93,11 @@ const Dashboard = () => {
         </Card>
       </div>
 
-      {/* Các card thông tin */}
       <div className="grid gap-2 grid-cols-2 md:grid-cols-2 lg:grid-cols-2 justify-center">
         <Card className="col-span-1 mx-auto w-full max-w-xs">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Thông tin cư dân</CardTitle>
-            <User className="h-4 w-4 text-muted-foreground" />
+            <Users className="text-green-200 h-4 w-4 " />
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
@@ -141,11 +139,10 @@ const Dashboard = () => {
           </CardContent>
         </Card>
 
-      
         <Card className="col-span-1 mx-auto w-full max-w-xs">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Căn hộ đang có cư trú</CardTitle>
-            <Home className="h-4 w-4 text-muted-foreground" />
+            <Warehouse className="h-4 w-4 text-blue-300" />
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
@@ -167,7 +164,7 @@ const Dashboard = () => {
             <CardTitle className="text-sm font-medium">
               Đóng góp tháng {format(new Date(), "MM/yyyy")}
             </CardTitle>
-            <PiggyBank className="h-4 w-4 text-yellow-500" />
+            <PiggyBank className="h-4 w-4 text-yellow-400" />
           </CardHeader>
           <CardContent>
             {isLoadingTotalContributionData ? (
@@ -188,10 +185,7 @@ const Dashboard = () => {
             )}
           </CardContent>
         </Card>
-        
       </div>
-
-      {/* Hàng 3: Thanh toán gần đây */}
       <div className="grid gap-2 grid-cols-1 justify-center">
         <Card className="col-span-1">
           <CardHeader className="relative flex flex-row items-start justify-between">
@@ -214,8 +208,27 @@ const Dashboard = () => {
           </CardContent>
         </Card>
       </div>
-    </div>
 
+      {/* Modals */}
+      <ApartmentModal
+        isOpen={isApartmentModalOpen}
+        onClose={() => setIsApartmentModalOpen(false)}
+        apartmentList={occupiedApartments?.apartments ?? []}
+      />
+      <UnpaidFeesModal
+        isOpen={isUnpaidFeesModalOpen}
+        onClose={() => setIsUnpaidFeesModalOpen(false)}
+        apartmentList={apartmentsWithUnpaidFees.map(apartment => ({
+          ...apartment,
+          unpaidFees: apartment.unpaidFees || [],
+        }))}
+      />
+      <ResidentModal
+        isOpen={isResidentModalOpen}
+        onClose={() => setIsResidentModalOpen(false)}
+        residentList={occupiedApartments?.apartments.flatMap(apartment => apartment.residents) ?? []}
+      />
+    </div>
   );
 };
 
