@@ -72,7 +72,7 @@ const Login = () => {
 
         <div className="space-y-4">
         <Button
-          className="w-full flex items-center justify-center bg-gray-200 text-black py-3 px-4 rounded-lg hover:bg-gray-300 transition"
+          className="w-full flex items-center justify-center bg-gradient-to-r from-blue-500 to-green-400 text-white py-3 px-4 rounded-lg hover:from-blue-600 hover:to-green-500 transition"
           onClick={() => {
             void handleOAuthSignIn("google");
           }}
@@ -87,6 +87,8 @@ const Login = () => {
           />
           Đăng nhập với Google
         </Button>
+
+
         </div>
         <div className="relative flex items-center py-4">
           <div className="flex-grow border-t border-gray-300"></div>
