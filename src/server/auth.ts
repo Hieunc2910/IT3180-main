@@ -50,7 +50,7 @@ export const authOptions: NextAuthOptions = {
         email: {
           label: "Email",
           type: "email",
-          placeholder: "khanh.pq224867@sis.hust.edu.vn",
+          placeholder: "Hieu.nc224982@sis.hust.edu.vn",
         },
         password: {label: "Password", type: "password"},
       },

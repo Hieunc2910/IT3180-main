@@ -47,7 +47,7 @@ const Home = () => {
                     Welcome to BlueMoon
                   </h1>
                   <p className="text-white mt-4 text-lg text-center">
-                    chung cư cao cấp cho mọi nhà
+                    CHUNG CƯ CAO CẤP CHO MỌI NHÀ
 
                   </p>
                 </div>
@@ -264,7 +264,7 @@ const Home = () => {
                       <textarea
                         className="w-full px-4 py-3 rounded-lg shadow-md border border-gray-300 placeholder-gray-400 focus:ring-4 focus:ring-pink-500 focus:border-pink-500 transition-all duration-300 ease-in-out"
                         placeholder="Để lại lời nhắn..."
-                        rows="4"
+                        rows={4}
                       />
                     </div>
 
