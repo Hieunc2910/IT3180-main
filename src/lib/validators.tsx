@@ -9,7 +9,7 @@ export const residentFormSchema = z.object({
   address: z.object({
     apartmentNo: z.number().int().positive(),
     permanentAddress: z.string().min(1, {message: 'Hãy điền địa chỉ thường trú'}),
-    currentAddress: z.string().min(1, {message: 'Hãy điền địa chỉ hiện tại'}),
+    currentAddress: z.string().min(1, {message: 'Hãy điền địa chỉ tạm trú'}),
     isStaying: z.boolean(),
     startDate: z.coerce.date().optional(),
     endDate: z.date().optional(),

@@ -17,7 +17,6 @@ import { Overview } from "@/components/page-component/dashboard/overview";
 import UnpaidFeesModal from "@/components/page-component/dashboard/unpaid-fees-modal";
 import BreadCrumb from "@/components/ui/breadcrumb";
 import ResidentModal from "@/components/page-component/dashboard/resident-modal";
-
 const Dashboard = () => {
   const breadcrumbItems = [{ title: "", link: "" }];
   const [isApartmentModalOpen, setIsApartmentModalOpen] = useState(false);

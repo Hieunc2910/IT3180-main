@@ -58,7 +58,7 @@ export const ResidentForm = ({ initialData }: ResidentFormProps) => {
   });
 
   const title = initialData ? "Cập nhật thông tin" : "Cư dân mới";
-  const description = initialData ? "Cập nhật thông tin" : "Tạo cư dân mới";
+  const description = initialData ? "Cập nhật thông tin cư dân" : "Tạo cư dân mới";
   const toastMessage = initialData ? "Cập nhật thành công" : "Tạo mới thành công";
   const action = initialData ? "Lưu" : "Tạo mới";
 
@@ -350,11 +350,11 @@ export const ResidentForm = ({ initialData }: ResidentFormProps) => {
                 console.log("Current Address field registered:", field);
                 return (
                   <FormItem>
-                    <FormLabel>Địa chỉ hiện tại</FormLabel>
+                    <FormLabel>Địa chỉ tạm trú</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
-                        placeholder="Địa chỉ hiện tại"
+                        placeholder="Địa chỉ tạm trú"
                         disabled={loading}
                       />
                     </FormControl>
